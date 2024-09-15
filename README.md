@@ -1,24 +1,21 @@
 # React + TypeScript + Vite e testes com Cypress
 
-Clone o projeto abra a pasta raiz e digite no terminal para instalar as dependências: 
+Clone o projeto abra a pasta raiz e digite no terminal para instalar as dependências:
 
 ```
 npm install
-
 ``` 
 
 Logo após digite: 
 
 ```
 npm run dev
-
 ```
 
 Para rodar os testes digite: 
 
 ```
 npm run cy:open 
-
 ``` 
 Que é um script para facilitar a digitação que se encontra no package.json: 
 
@@ -30,14 +27,12 @@ Que é um script para facilitar a digitação que se encontra no package.json:
     "preview": "vite preview",
     "cy:open": "cypress open"
   },
-
-
 ```
 ## Corrigindo erro de cypress configuration error
 
 Ao adicionar o cypress no projeto e escolher o modo testes &2& (end to end) recebi o erro:
 
- - `exports is not defined in ES module scope`  onde minha solução em pesquisas no google, cheguei a essa solução onde fazer algumas alterações no arquivo `tsconfig.json`.
+ - `exports is not defined in ES module scope`  e... depois de algumas pesquisas, cheguei a essa solução onde fazer algumas alterações no arquivo `tsconfig.json`.
 
  ```js
    "compilerOptions": {
@@ -51,7 +46,6 @@ Ao adicionar o cypress no projeto e escolher o modo testes &2& (end to end) rece
 
   ```js
 {
-
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },
@@ -59,7 +53,24 @@ Ao adicionar o cypress no projeto e escolher o modo testes &2& (end to end) rece
   ]
 }
 ```
-  Dessa forma consegui resolver o erro e seguir com a configuração inicial do cypress.
+ficando dessa forma: 
+
+  ```js
+{
+    "compilerOptions": {
+    "target": "ESNext",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext"
+  },
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}
+```
+
+  Assim consegui resolver o erro e seguir com a configuração inicial do cypress.
 
 ## Onde devo criar o primeiro teste.
 
