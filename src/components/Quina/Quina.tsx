@@ -7,7 +7,7 @@ interface SearchLoteriaResult {
 export function Quina() {
   const { data }: SearchLoteriaResult = SearchLoterias("quina");
   return (
-    <div className="text-center absolute top-52 max-h-screen text-black bg-zinc-100 flex w-full  p-6 rounded-t-[3rem]">
+    <div className="text-center  top-52 max-h-screen text-black bg-zinc-100 flex justify-center w-full  p-6 rounded-t-[3rem]">
       <div className="flex items-center justify-center p-10 gap-10 flex-wrap">
         {/* Verifique se data é um array e mapeie os itens */}
         {data && Array.isArray(data) ? (
